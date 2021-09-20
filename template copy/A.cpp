@@ -44,11 +44,15 @@ using pq_min = priority_queue<T, vector<T>, greater<T>>;
 #define trav(a, x) for (auto &a : x)
 #define uid(a, b) uniform_int_distribution<int>(a, b)(rng)
 
+#define IN(n) \
+    int n;    \
+    cin >> n;
+
 #define sz(x) (int)(x).size()
 #define mp make_pair
 #define pb push_back
-#define f first
-#define s second
+#define fir first
+#define sec second
 #define lb lower_bound
 #define ub upper_bound
 #define all(x) x.begin(), x.end()
@@ -71,13 +75,50 @@ template <typename T>
 T min(T a, T b, T c) { return min(min(a, b), c); }
 template <typename T, typename... Ts>
 T min(T a, Ts... as) { return min(a, min(as...)); }
+///////////////////////////////////////////////////////////////////////////////////////////////
+// template <class ForwardIt, class T, class Compare>
+// ForwardIt bin_search(ForwardIt first, ForwardIt last, const T &value, Compare cmp = less<T>{})
+// {
+//     ForwardIt i = std::lower_bound(first, last, value, cmp);
+//     if (i != last && !cmp(value, *i))
+//         return i;
+//     else
+//         return last;
+// }
 
+struct Edge
+{
+    Edge(int dest, int value = 1) : dest(dest), value(value) {}
+    int dest;
+    int value;
+    operator int() const { return dest; }
+};
+
+struct Node
+{
+    vector<Edge> edges;
+    bool visited;
+    int parent;
+    void push_back(int dest, int value = 1) { edges.emplace_back(dest, value); }
+    Edge &operator[](size_t idx) { return edges[idx]; }
+};
+
+using Graph = vector<Node>;
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 void solution()
 {
-    int n;
-    cin >> n;
+
+    Graph g;
+    g.emplace_back();
+    g.emplace_back();
+    g.emplace_back();
+    g.emplace_back();
+    g[0].push_back(2);
+    for (int e : g[0].edges)
+    {
+        cout << e;
+    }
 }
 
 int main(void)
@@ -85,6 +126,7 @@ int main(void)
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int qs = 1;
+
     // cin >> qs;
 
     while (qs--)

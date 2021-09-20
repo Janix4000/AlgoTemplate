@@ -4,5 +4,8 @@
         "ckmin",
         "dojade",
         "veci"
-    ]
+    ],
+    "files.associations": {
+        "array": "cpp"
+    }
 }

@@ -44,11 +44,15 @@ using pq_min = priority_queue<T, vector<T>, greater<T>>;
 #define trav(a, x) for (auto &a : x)
 #define uid(a, b) uniform_int_distribution<int>(a, b)(rng)
 
+#define IN(n) \
+    int n;    \
+    cin >> n;
+
 #define sz(x) (int)(x).size()
 #define mp make_pair
 #define pb push_back
-#define f first
-#define s second
+#define fir first
+#define sec second
 #define lb lower_bound
 #define ub upper_bound
 #define all(x) x.begin(), x.end()
@@ -71,13 +75,14 @@ template <typename T>
 T min(T a, T b, T c) { return min(min(a, b), c); }
 template <typename T, typename... Ts>
 T min(T a, Ts... as) { return min(a, min(as...)); }
+///////////////////////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 void solution()
 {
-    int n;
-    cin >> n;
+    IN(n);
+    cout << n;
 }
 
 int main(void)

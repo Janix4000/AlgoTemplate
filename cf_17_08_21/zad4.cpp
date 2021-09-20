@@ -109,20 +109,35 @@ void __print(T &&t)
 #define dbg(x...)
 #endif
 
-void solution()
+vi build(vl &tab)
 {
-    int n;
-    cin >> n;
+    vector<pair<ll, int>> indVal;
+    for (int i = 0; i < tab.size(); i++)
+    {
+        indVal.pb({tab[i], i});
+    }
+    sort(indVal.begin(), indVal.end());
+    set<int> ind;
+    vi res(tab.size());
+    for (pair<ll, int> p : indVal)
+    {
+        auto it = ind.lower_bound(p.second);
+        if (it != ind.end())
+        {
+            res[p.second] = *it;
+        }
+        else
+        {
+            res[p.second] = -1;
+        }
+        ind.insert(p.second);
+    }
+    return res;
 }
 
-int main(void)
+int main()
 {
-    int qs = 1;
-    // cin >> qs;
-
-    while (qs--)
-    {
-        solution();
-    }
-    return 0;
+    ios_base::sync_with_stdio(0);
+    vl A = {5, 6, 3, 7, 1, 4, 3, 6, 3};
+    __print(build(A));
 }

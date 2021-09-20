@@ -3,6 +3,16 @@
         "ckmax",
         "ckmin",
         "dojade",
-        "veci"
-    ]
+        "veci",
+        "wnbor"
+    ],
+    "files.associations": {
+        "*.tcc": "cpp",
+        "deque": "cpp",
+        "vector": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "string_view": "cpp"
+    }
 }
