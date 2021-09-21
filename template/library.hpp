@@ -43,9 +43,6 @@ struct Vec2
     }
 };
 
-// TODO Dijkstra, MaxFlow, Spanning Tree, FindUnion, TopoSort
-// TODO Bridges, SPFA, Graph as struct, , StringHashes, GCD
-
 using It = string::iterator;
 std::vector<int> get_kmp(It beg, It end)
 {
@@ -63,26 +60,7 @@ std::vector<int> get_kmp(It beg, It end)
     return tab;
 }
 
-struct Edge
-{
-    Edge(int dest, int value = 1) : dest(dest), value(value) {}
-    int dest;
-    int value;
-    operator int() const { return dest; }
-};
-
-struct Node
-{
-    vector<Edge> edges;
-    bool visited;
-    int parent;
-    void push_back(int dest, int value = 1) { edges.emplace_back(dest, value); }
-    Edge &operator[](size_t idx) { return edges[idx]; }
-    const Edge &operator[](size_t idx) const { return edges[idx]; }
-    size_t size() const { return edges.size(); }
-};
-
-using Graph = vector<Node>;
+using Graph = vector<vector<int>>;
 
 bool dfs(Graph &graph, int v = 0)
 {
