@@ -121,7 +121,7 @@ private:
             size *= 2;
             n /= 2;
         }
-        const int whole_size = size * 2 - 1;
+        const int whole_size = size * 2;
         tree.clear();
         tree.resize(whole_size, neutral);
         bag.clear();
@@ -132,8 +132,7 @@ private:
 template <typename T>
 void ___print(const SegTree<T> &tree)
 {
-    int h = 0;
-    int n = tree.size() / 2;
+    const int n = tree.size;
     int k = n;
     while (k > 0)
     {
