@@ -6,6 +6,7 @@
         "veci"
     ],
     "files.associations": {
-        "array": "cpp"
+        "array": "cpp",
+        "iostream": "cpp"
     }
 }
