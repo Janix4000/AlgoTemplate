@@ -1,2 +1,12 @@
 *.exe
 template/test.cpp
+template.cpp
+print.hpp
+args
+library/
+out
+.vscode
+!template/library
+!template/.vscode
+!template/template.cpp
+!template/print.hpp
