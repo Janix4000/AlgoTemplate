@@ -11,7 +11,7 @@
                 "$gcc"
             ],
             "dependsOn": [
-                "g++ build active file"
+                "g++ build active file debug"
             ],
             "presentation": {
                 "clear": true,
@@ -31,7 +31,7 @@
                 "$gcc"
             ],
             "dependsOn": [
-                "g++ build active file"
+                "g++ build active file debug"
             ],
             "presentation": {
                 "clear": true,
@@ -42,12 +42,37 @@
         },
         {
             "type": "shell",
-            "label": "g++ build active file",
+            "label": "g++ build active file release",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-x",
+                "c++",
+                "-Wall",
+                "-O2",
+                "-static", 
+                "-pipe",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}",
+                "${file}",
+                "-lm"
+            ],
+            "options": {
+                "cwd": "/usr/bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "g++ build active file debug",
             "command": "/usr/bin/g++",
             "args": [
                 "-g",
                 "-Wall",
                 "-Wextra",
+                "-DDEBUG",
                 "${file}",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
