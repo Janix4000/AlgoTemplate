@@ -82,7 +82,6 @@ T min(T a, Ts... as) { return min(a, min(as...)); }
 void solution()
 {
     IN(n);
-    cout << n;
 }
 
 int main(void)
