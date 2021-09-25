@@ -59,3 +59,18 @@ void ___print(const GraphT<T> &graph)
     for (auto &node : graph)
         cerr << (f++ ? "\n" : "") << f - 1 << ": ", ___print(node);
 }
+
+template <typename Node, typename Edge>
+struct GraphT
+{
+    struct EdgeT : public Edge
+    {
+        int dest = -1;
+        EdgeT(Edge e, int v) : Edge(e), dest(e) {}
+    };
+    struct NodeT : public Node, public vector<EdgeT>
+    {
+    };
+    vector<NodeT> nodes;
+    Graph(int n) : nodes(n) {}
+};
