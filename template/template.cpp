@@ -39,6 +39,9 @@ using pq_min = priority_queue<T, vector<T>, greater<T>>;
 #define F0Rd(i, a) for (int i = (a)-1; i >= 0; --i)
 #define trav(a, x) for (auto &a : x)
 #define uid(a, b) uniform_int_distribution<int>(a, b)(rng)
+#define pln( x ) cout << x << "\n"
+#define ps( x ) cout << x << " "
+#define entr cout << "\n"
 
 #define IN(n) \
     int n;    \
