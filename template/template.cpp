@@ -1,11 +1,7 @@
 #include <bits/stdc++.h>
-#ifndef DEBUG
-#pragma GCC optimize("O3")
-#pragma GCC target("sse4")
-#endif // !DEBUG
 
 template <typename... Ts>
-void __print(Ts &&...ts);
+void __print(Ts &&...ts) {}
 #ifdef DEBUG
 #include "print.hpp"
 #endif // DEBUG
