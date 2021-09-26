@@ -46,7 +46,15 @@ struct Vec2T
     {
         return x * rhs.x + y * rhs.y;
     }
+    T dot(const Vec2T<T> &rhs) const
+    {
+        return x * rhs.x + y * rhs.y;
+    }
     T operator%(const Vec2T<T> &rhs) const
+    {
+        return x * rhs.y - y * rhs.x;
+    }
+    T cross(const Vec2T<T> &rhs) const
     {
         return x * rhs.y - y * rhs.x;
     }
@@ -55,16 +63,20 @@ struct Vec2T
         return *this * rhs == (T)0;
     }
     bool is_coolinear(const Vec2T<T> &rhs) const { return *this % rhs == (T)0; }
+    double angle_between(const Vec2T<T> &rhs)
+    {
+        auto dot = *this * rhs;
+        auto det = *this % rhs;
+        return atan2(det, dot);
+    }
+    T len_sq() const
+    {
+        return *this * *this;
+    }
+    double len() const
+    {
+        return sqrt(len_sq());
+    }
 };
 
 using Vec2 = Vec2T<long long>;
-
-template <typename T>
-void ___print(const Vec2T<T> &rhs)
-{
-    cerr << "<";
-    ___print(rhs.x);
-    cerr << ", ";
-    ___print(rhs.y);
-    cerr << ">";
-}
