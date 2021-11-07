@@ -1,6 +1,7 @@
 *.exe
 template/test.cpp
 template.cpp
+test.cpp
 print.hpp
 args
 library/

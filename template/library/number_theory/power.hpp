@@ -2,13 +2,10 @@ using ll = long long;
 constexpr ll P = 1000000007;
 
 template <typename ll = long long>
-ll powerModT(ll a, ll n, const ll P)
-{
+ll power_mod(ll a, ll n, const ll P) {
     ll res = 1;
-    while (n)
-    {
-        if (n % (ll)2)
-        {
+    while (n) {
+        if (n % (ll)2) {
             res = (res * a) % P;
         }
         n /= (ll)2;
@@ -18,13 +15,10 @@ ll powerModT(ll a, ll n, const ll P)
 }
 
 template <typename ll = long long>
-ll power(ll a, ll n)
-{
+ll power(ll a, ll n) {
     ll res = 1;
-    while (n)
-    {
-        if (n % (ll)2)
-        {
+    while (n) {
+        if (n % (ll)2) {
             res = (res * a);
         }
         n /= (ll)2;
