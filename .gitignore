@@ -1,12 +1,12 @@
 *.exe
-template/test.cpp
 template.cpp
 test.cpp
 print.hpp
-args
+args*
 library/
-out
-.vscode
+out/
+.vscode/
+
 !template/library
 !template/.vscode
 !template/template.cpp
