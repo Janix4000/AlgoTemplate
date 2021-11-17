@@ -31,13 +31,15 @@ template <typename T>
 using vec = vector<T>;
 template <typename T, size_t N>
 using arr = array<T, N>;
-typedef vector<int> vi;
-typedef vector<vi> vvi;
-typedef vector<ll> vl;
-typedef vector<vl> vvl;
 
-typedef pair<int, int> pi;
-typedef pair<ll, ll> pl;
+using vi = vector<int>;
+using vvi = vector<vi>;
+using vl = vector<ll>;
+using vvl = vector<vl>;
+
+using pi = pair<int, int>;
+using pl = pair<ll, ll>;
+
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
