@@ -41,7 +41,6 @@
             "command": "g++",
             "args": [
                 "-g",
-                "-std=c++17",
                 "-Wall",
                 "-Wextra",
                 "./${fileBasename}",
