@@ -72,9 +72,7 @@ void solution() {
     for (int a : q) {
         cout << a << ' ';
     }
-    // __print("]");
     cout << '\n';
-    // __print(q);
 }
 
 int main(void) {

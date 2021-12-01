@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 template <typename... Ts>
-void __print(Ts &&...ts) {}
+void __print(Ts&&... ts) {}
 #ifdef DEBUG
 #include "print.hpp"
 #endif  // DEBUG
@@ -43,60 +43,43 @@ using pl = pair<ll, ll>;
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
-
-class Solution {};
-
-void solution() {
-    int n, s;
-    cin >> n >> s;
-    vi sc(n);
-    loop(i, n) { cin >> sc[i]; }
-    vi sums(n + 1, 0);
-    loop(i, n) { 
-        sums[i + 1] = sums[i] + sc[i];
-    }
-    int beg = 0, end = 0;
-    for(int i = 0; i < n; ++i) {
-        for(int j = end - beg + 1; j < n - i; ++j) {
-            if(sums[j] - sums[i])
-        }
-    }
-    int sum = s;
-    int l = 0, r = 0;
-    for (; r < n; ++r) {
-        sum += sc[r];
-        if (sum < 0) {
-            if (r - l > end - beg) {
-                beg = l;
-                end = r;
-            }
-            while (sum < 0 && l < n) {
-                sum -= sc[l];
-                l++;
+class Solution {
+   public:
+    int countP(vector<vector<int>>& grid) {
+        int rows = grid.size();
+        int cols = grid.front().size();
+        vvi dp(rows, vi(cols, 0));
+        for (int y = rows - 2; y >= 0; --y) {
+            for (int x = 1; x < cols - 1; ++x) {
+                if (grid[y][x] && grid[y + 1][x] && grid[y + 1][x + 1] &&
+                    grid[y + 1][x - 1]) {
+                    dp[y][x] = 1 + min({dp[y + 1][x], dp[y + 1][x + 1],
+                                        dp[y + 1][x - 1]});
+                }
             }
         }
+        int res = 0;
+        for (auto& row : dp) {
+            res += accumulate(all(row), 0);
+        }
+        return res;
     }
-    if (r - l > end - beg && sum >= 0) {
-        beg = l;
-        end = r;
+    int countPyramids(vector<vector<int>>& grid) {
+        int res = countP(grid);
+        reverse(all(grid));
+        return res + countP(grid);
     }
-    if (beg == end) {
-        cout << "-1\n";
-    } else {
-        cout << beg + 1 << ' ' << end << '\n';
-    }
-}
+};
 
 int main(void) {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int qs = 1;
-    cin >> qs;
 
-    while (qs--) {
-        solution();
-    }
+    vvi grid = {{0, 1, 1, 0}, {1, 1, 1, 1}};
+    // vvi grid = {{1, 1, 1, 1, 0}, {1, 1, 1, 1, 1}, {1, 1, 1, 1, 1}, {0, 1, 0,
+    // 0, 1}};
 
-    // Solution solution;
+    Solution solution;
+    __print(solution.countPyramids(grid));
     return 0;
 }

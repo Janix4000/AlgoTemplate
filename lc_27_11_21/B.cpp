@@ -44,59 +44,45 @@ using pl = pair<ll, ll>;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
-class Solution {};
-
-void solution() {
-    int n, s;
-    cin >> n >> s;
-    vi sc(n);
-    loop(i, n) { cin >> sc[i]; }
-    vi sums(n + 1, 0);
-    loop(i, n) { 
-        sums[i + 1] = sums[i] + sc[i];
-    }
-    int beg = 0, end = 0;
-    for(int i = 0; i < n; ++i) {
-        for(int j = end - beg + 1; j < n - i; ++j) {
-            if(sums[j] - sums[i])
-        }
-    }
-    int sum = s;
-    int l = 0, r = 0;
-    for (; r < n; ++r) {
-        sum += sc[r];
-        if (sum < 0) {
-            if (r - l > end - beg) {
-                beg = l;
-                end = r;
+class Solution {
+   public:
+    int minimumBuckets(string street) {
+        int n = street.size();
+        street.insert(n, "H");
+        street.insert(0, "H");
+        int buckets = 0;
+        vi good(n + 2, false);
+        good[0] = true;
+        good[n + 1] = true;
+        for (int i = 1; i <= n + 1; ++i) {
+            char c = street[i];
+            if (c == '.') {
+                if (!good[i - 1]) {
+                    buckets++;
+                    good[i - 1] = true;
+                    good[i + 1] = true;
+                }
+                good[i] = true;
+            } else {
+                if (!good[i - 1]) {
+                    buckets = -1;
+                    break;
+                }
+                if (!good[i] && street[i + 1] == 'H' && street[i - 1] == '.') {
+                    buckets++;
+                    good[i] = true;
+                }
             }
-            while (sum < 0 && l < n) {
-                sum -= sc[l];
-                l++;
-            }
         }
+        return buckets;
     }
-    if (r - l > end - beg && sum >= 0) {
-        beg = l;
-        end = r;
-    }
-    if (beg == end) {
-        cout << "-1\n";
-    } else {
-        cout << beg + 1 << ' ' << end << '\n';
-    }
-}
-
+};
 int main(void) {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int qs = 1;
-    cin >> qs;
 
-    while (qs--) {
-        solution();
-    }
-
-    // Solution solution;
+    Solution solution;
+    string street = ".HHH.";
+    __print(solution.minimumBuckets(street));
     return 0;
 }
