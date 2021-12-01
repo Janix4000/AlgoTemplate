@@ -22,8 +22,13 @@ using pq_min = priority_queue<T, vector<T>, greater<T>>;
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 #define all(x) x.begin(), x.end()
-#define loop(i, b) for (int i = 0; i < (b); ++i)
-#define loopr(i, b) for (int i = (b)-1; i >= 0; --i)
+
+#define GET_FOR(_1, _2, _3, NAME, ...) NAME
+#define loop(...) GET_FOR(__VA_ARGS__, FOR, F0R)(__VA_ARGS__)
+
+#define GET_FORd(_1, _2, _3, NAME, ...) NAME
+#define loopr(...) GET_FOR(__VA_ARGS__, FORd, F0Rd)(__VA_ARGS__)
+
 #define sz(x) ((int)(x).size())
 
 using ll = long long;
