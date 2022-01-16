@@ -6,7 +6,7 @@
         {
             "type": "shell",
             "label": "g++_run",
-            "command": "cat ./args | ./out/${fileBasenameNoExtension}.exe",
+            "command": "cat ./args | ./out/${fileBasenameNoExtension}.out",
             "problemMatcher": [
                 "$gcc"
             ],
@@ -22,7 +22,7 @@
         {
             "type": "shell",
             "label": "g++_run_wout_input",
-            "command": "./out/${fileBasenameNoExtension}.exe",
+            "command": "./out/${fileBasenameNoExtension}.out",
             "problemMatcher": [
                 "$gcc"
             ],
@@ -48,7 +48,7 @@
                 "-D",
                 "DEBUG",
                 "-o",
-                "./out/${fileBasenameNoExtension}.exe"
+                "./out/${fileBasenameNoExtension}.out"
             ],
             "options": {
                 "cwd": "${fileDirname}"
