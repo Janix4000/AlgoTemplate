@@ -1,5 +1,7 @@
 #include <bits/stdc++.h>
 
+#include <vector>
+
 template <typename... Ts>
 void __print(Ts &&...ts) {}
 #ifdef DEBUG
@@ -55,6 +57,16 @@ void solution() {
     int n;
     cin >> n;
 }
+
+// #include <ext/pb_ds/assoc_container.hpp>
+// using namespace __gnu_pbds;
+// #define ordered_set                                            \
+//     tree<int64_t, null_type, less_equal<int64_t>, rb_tree_tag, \
+//          tree_order_statistics_node_update>
+// ordered_set S;
+// S.insert(a);
+// cout << *(S.find_by_order(S.size() - a)) << '\n';
+// S.erase(S.lower_bound(a - 1));
 
 int main(void) {
     ios_base::sync_with_stdio(false);

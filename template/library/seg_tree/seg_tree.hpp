@@ -92,11 +92,8 @@ class SegTree {
             size *= 2;
             n /= 2;
         }
-        const int whole_size = size * 2;
-        tree.clear();
-        tree.resize(whole_size, neutral);
-        bag.clear();
-        bag.resize(whole_size, neutral);
+        tree.assign(size * 2 + 1, neutral);
+        bag.resize(size * 2 + 1, neutral);
     }
 };
 

@@ -1,4 +1,9 @@
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <iostream>
+#include <set>
+#include <string>
+#include <vector>
+// #include <bits/stdc++.h>
 
 using namespace std;
 
@@ -14,35 +19,33 @@ using vi = vec<int>;
 using vvi = vec<vi>;
 using viii = vec<vvi>;
 
-void solution()
-{
+void solution() {
     string s;
-    cin >> s; // aaabababbbbbabbbabbbaaaabbaaa
-    if (s.front() != s.back())
-    {
+    cin >> s;  // aaabababbbbbabbbabbbaaaabbaaa
+    if (s.front() != s.back()) {
         auto it = find(all(s), s.front() == 'a' ? 'b' : 'a');
         auto rev_it = find(allr(s), s.back() == 'a' ? 'b' : 'a');
-        if (it - s.begin() < rev_it - s.rbegin())
-        {
+        if (it - s.begin() < rev_it - s.rbegin()) {
             fill(s.begin(), it, s.front() == 'a' ? 'b' : 'a');
-        }
-        else
-        {
+        } else {
             fill(s.rbegin(), rev_it, s.back() == 'a' ? 'b' : 'a');
         }
     }
     cout << s << endl;
 }
 
-int main()
-{
+int main() {
     int qs = 1;
     cin >> qs;
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    while (qs--)
-    {
+    vi src = {0, 1, 2, 3, 4, 5, 6};
+
+    set<int> dst;
+    copy_n(src.begin(), 3, inserter(dst, dst.begin()));
+
+    while (qs--) {
         solution();
     }
 }
